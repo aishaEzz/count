@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { apiGet, apiPost } from '../apiClient'
 
 export default function CoalERPSystem(){
