@@ -39,6 +39,30 @@
   npx ngrok http 4000
   ```
 
+## نشر مجاني كامل
+
+إعداد مشروع GitHub وإرسال الكود:
+```bash
+git init
+git add .
+git commit -m "Prepare for deployment"
+git branch -M main
+git remote add origin https://github.com/<your-user>/<repo>.git
+git push -u origin main
+```
+
+بعد رفع الكود:
+- في Vercel: أنشئ مشروعًا جديدًا من نفس المستودع.
+  - Build Command: `npm run build`
+  - Output Directory: `dist`
+  - أضف في Environment Variables: `VITE_API_URL` = `https://<render-service>.onrender.com`
+
+- في Render: أنشئ Web Service من نفس المستودع.
+  - Start Command: `npm start`
+  - Render سيعطيك رابط HTTPS للخادم.
+
+- بعد ذلك حدّث `VITE_API_URL` في Vercel إلى رابط Render النهائي.
+
 ملاحظات أمان:
 - لا تضف بيانات حساسة إلى الكود. استخدم متغيرات البيئة.
 - فعل CORS حسب نطاق الواجهة إذا أردت تقييد الوصول.
